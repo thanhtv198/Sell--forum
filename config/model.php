@@ -23,10 +23,36 @@ return [
         ],
         'paginate' => 5,
         'view' => 0,
+        'quantity' => 0,
+    ],
+
+    //respond
+    'respond' => [
+        'status' => [
+            'wating' => 0,
+            'check' => 1,
+        ],
+        'paginate' => 5,
+        'view' => 0,
+        'quantity' => 0,
     ],
 
     //post
     'post' => [
+        'status' => [
+            'inactive' => 0,
+            'active' => 1,
+        ],
+        'upload' => 'upload/post',
+        'paginate' => 5,
+        'recent' => 5,
+        'limit' => 10,
+        'view' => 0,
+        'tagsInDetail' => 3,
+    ],
+
+    //product
+    'product' => [
         'status' => [
             'inactive' => 0,
             'active' => 1,
@@ -55,6 +81,35 @@ return [
     //tag
     'tag' => [
         'limit' => 20,
+        'view' => 0,
+    ],
+
+    //news
+    'news' => [
+        'limit' => 20,
+        'view' => 0,
+    ],
+
+    //comment
+    'comment' => [
+        'status' => [
+            'inactive' => 0,
+            'active' => 1,
+        ],
+        'paginate' => 5,
+        'view' => 0,
+    ],
+
+    //order_detail
+    'order_detail' => [
+        'status' => [
+            'wating' => 0,
+            'handled' => 1,
+            'cancle' => 2,
+        ],
+        'upload' => 'upload/post',
+        'paginate' => 5,
+        'limit' => 10,
         'view' => 0,
     ],
 

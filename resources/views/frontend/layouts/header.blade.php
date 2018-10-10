@@ -14,18 +14,33 @@
             <div class="col-md-6 col-sm-6 additional-nav">
                 <ul class="list-unstyled list-inline pull-right">
                     @if(!Auth::check())
-                    <li><a href="{{ route('login') }}">Log In</a></li>
-                    <li><a href="{{ route('register') }}">Registration</a></li>
+                        <li><a href="{{ route('login') }}">Log In</a></li>
+                        <li><a href="{{ route('register') }}">Registration</a></li>
                     @else
                         <li>
                             <a href="javascript:;">
                                 <i class="nav-icon fa fa-bell-o"></i>
                             </a>
                         </li>
-                        <li>
-                            <a class="" href="{{ route('posts.create') }}">
+
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
                                 <i class="nav-icon fa fa-pencil"></i>
                             </a>
+                            <ul class="dropdown-menu dropdown-write">
+                                <li class="write-icon">
+                                    <a class="" href="{{ route('posts.create') }}">
+                                        <i class="nav-icon fa fa-newspaper-o"></i>
+                                        Posts and Questions
+                                    </a>
+                                </li>
+                                <li class="write-icon">
+                                    <a class="" href="{{ route('posts.create') }}">
+                                        <i class="nav-icon fa fa-map-marker"></i>
+                                        Selling Products
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
@@ -33,9 +48,12 @@
                                 {{ auth()->user()->name }}
                             </a>
                             <ul class="dropdown-menu dropdown-user">
-                                <li class="user-icon"><a href="{{ route('users.timeline', auth()->user()->id) }}"><i class="nav-icon fa fa-user"></i>Timeline</a></li>
-                                <li class="user-icon"><a href="{{ route('users.show', auth()->user()->id) }}"><i class="nav-icon fa fa-cog"></i>My Account</a></li>
-                                <li class="user-icon"><a href="{{ route('logout') }}"><i class="nav-icon fa fa-sign-out"></i>Logout</a></li>
+                                <li class="user-icon"><a href="{{ route('users.timeline', auth()->user()->id) }}"><i
+                                                class="nav-icon fa fa-user"></i>Timeline</a></li>
+                                <li class="user-icon"><a href="{{ route('users.show', auth()->user()->id) }}"><i
+                                                class="nav-icon fa fa-cog"></i>My Account</a></li>
+                                <li class="user-icon"><a href="{{ route('logout') }}"><i
+                                                class="nav-icon fa fa-sign-out"></i>Logout</a></li>
                             </ul>
                         </li>
                     @endif
@@ -98,25 +116,25 @@
                     </ul>
                 </li>
                 <li class="dropdowns">
-                    <a class=""  href="javascript:;">
+                    <a class="" href="javascript:;">
                         About us
                     </a>
                 </li>
-               <li class="dropdown">
-                   <div class="search-tab">
-                       <div id="header" view="header">
-                           <div class="main">
-                               {!! Form::open(['route' => 'search.post', 'method' => 'get']) !!}
-                               <div class="search-bar">
-                                   {!! Form::text('key', null, ['id' => 'tags', 'onkeyup' => 'autoComplete()', 'placeholder' => trans('en.tag.search')]) !!}
-                                   {!! Form::button('', ['type' => 'submit', 'class' => 'fa fa-search', 'id' => 'tag' ]) !!}
-                                   {!! Form::hidden('url', config('app.url_base'), ['id' => 'url']) !!}
-                               </div>
-                               {{ Form::close() }}
-                           </div>
-                       </div>
-                   </div>
-               </li>
+
+                <li class="menu-search">
+                    <span class="sep"></span>
+                    <i class="fa fa-search search-btn"></i>
+                    <div class="search-box">
+                        {!! Form::open(['route' => 'search.post', 'method' => 'get']) !!}
+                        <div class="input-group">
+                            {!! Form::text('key', null, ['id' => 'tags', 'class' => 'form-control', 'onkeyup' => 'autoComplete()', 'placeholder' => trans('en.tag.search')]) !!}
+                            <span class="input-group-btn">
+                      <button class="btn btn-primary" type="submit">Search</button>
+                    </span>
+                        </div>
+                        {{ Form::close() }}
+                    </div>
+                </li>
             </ul>
         </div>
         <!-- END NAVIGATION -->

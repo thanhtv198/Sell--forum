@@ -19,7 +19,7 @@ class TagsTableSeeder extends Seeder
             DB::table('tags')->insert([
                 'name' => $faker->unique()->sentence($nbWords = 1),
                 'slug' => $faker->unique()->slug(1),
-                'view' => config('blog.tag.view')
+                'view' => config('model.tag.view')
             ]);
         }
     }

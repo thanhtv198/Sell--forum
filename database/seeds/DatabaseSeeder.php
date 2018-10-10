@@ -11,15 +11,34 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-//        \App\Models\Tag::query()->truncate();
-//        \App\Models\Topic::query()->truncate();
-//        \App\Models\User::query()->truncate();
-//        \App\Models\Post::query()->truncate();
+        \App\Models\Tag::query()->truncate();
+        \App\Models\Question::query()->truncate();
+        \App\Models\Post::query()->truncate();
+        \App\Models\Topic::query()->truncate();
+        \App\Models\News::query()->truncate();
+        \App\Models\OrderDetail::query()->truncate();
+        \App\Models\User::query()->truncate();
+        \App\Models\Order::query()->truncate();
+        \App\Models\City::query()->truncate();
+        \App\Models\Slide::query()->truncate();
+        \App\Models\Category::query()->truncate();
+        \App\Models\Product::query()->truncate();
+        \App\Models\CustomizeProduct::query()->truncate();
 
-         $this->call(UsersTableSeeder::class);
-         $this->call(TopicsTableSeeder::class);
-         $this->call(PostsTableSeeder::class);
-         $this->call(TagsTableSeeder::class);
-         $this->call(QuestionsTableSeeder::class);
+        $this->call(TopicsTableSeeder::class);
+        $this->call(TagsTableSeeder::class);
+        $this->call(CitiesTableSeeder::class);
+        $this->call(RolesTableSeeder::class);
+        $this->call(SlidesTableSeeder::class);
+        $this->call(UsersTableSeeder::class);
+        $this->call(QuestionsTableSeeder::class);
+        $this->call(PostsTableSeeder::class);
+        $this->call(CategoriesTableSeeder::class);
+        $this->call(ManufacturesTableSeeder::class);
+        $this->call(ProductsTableSeeder::class);
+        $this->call(ImagesTableSeeder::class);
+        $this->call(RespondsTableSeeder::class);
+        $this->call(NewsTableSeeder::class);
+        $this->call(RatingsTableSeeder::class);
     }
 }

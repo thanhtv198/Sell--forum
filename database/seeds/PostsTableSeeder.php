@@ -21,8 +21,8 @@ class PostsTableSeeder extends Seeder
                 'title' => $faker->unique()->sentence($nbWords = 15),
                 'slug' => $faker->unique()->slug(10),
                 'content' => $faker->unique()->sentence($nbWords = 500),
-                'status' => config('blog.post.status.active'),
-                'view' => config('blog.post.view'),
+                'status' => config('model.post.status.active'),
+                'view' => config('model.post.view'),
             ]);
 
             $post->tags()->sync($faker->numberBetween(1, 10));

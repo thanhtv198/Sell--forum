@@ -2,15 +2,16 @@
 
 namespace App\Models;
 
+//use Laravel\Scout\Searchable;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
-use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 
 class Post extends Model
 {
-    use Searchable, Sluggable, SluggableScopeHelpers, SoftDeletes;
+//    use Searchable,
+        use Sluggable, SluggableScopeHelpers, SoftDeletes;
 
     const VIEW = 0;
 
@@ -20,7 +21,7 @@ class Post extends Model
         'slug',
         'content',
         'status',
-        'reject_reason',
+        'block_id',
         'view',
     ];
 

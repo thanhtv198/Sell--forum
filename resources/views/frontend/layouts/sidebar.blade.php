@@ -5,7 +5,7 @@
     <ul class="nav sidebar-categories margin-bottom-40">
         @foreach($topics as $row)
             <li>
-                @if(isset($topicSidebar) && $topicSidebar == $row->id)
+                @if(isset($topicSidebar) && $topicSidebar == $row->slug)
                     <a href="{{ route('posts',  ['slug' => $row->slug]) }}" class="title-topic-choose">
                         {{ $row->name }} ({{ count($row->posts) }})
                     </a>

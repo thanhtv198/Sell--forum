@@ -22,13 +22,13 @@ class TopicController extends Controller
      * @param int $id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function getPostByTopicId($id)
+    public function getPostByTopicId($slug)
     {
-        $posts = $this->repository->getPostById($id);
+        $posts = $this->repository->getPostById($slug);
 
-        $topicSidebar = $id;
+        $topicSidebar = $slug;
 
-        $topicName = $this->repository->getNameById($id);
+        $topicName = $this->repository->getNameById($slug);
        
         return view('frontend.topic.index', compact('posts', 'topicName', 'topicSidebar'));
     }

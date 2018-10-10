@@ -16,13 +16,12 @@ class CreatePostsTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('title');
             $table->string('slug')->unique()->nullable();
             $table->longText('content');
             $table->integer('view')->nullable();
-            $table->tinyInteger('status')->default(config('blog.post.status.active'));
-            $table->string('reject_reason')->nullable();
+            $table->tinyInteger('status')->default(config('model.post.status.active'));
+            $table->unsignedInteger('block_id')->nullable();
             $table->softDeletesTz();
             $table->timestamps();
         });

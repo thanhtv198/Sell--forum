@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Update01TableUser extends Migration
+class CreateSlidesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class Update01TableUser extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('block_reason')->nullable()->after('status');
+        Schema::create('slides', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('title');
+            $table->string('image');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +28,6 @@ class Update01TableUser extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('block_reason');
-        });
+        Schema::dropIfExists('slides');
     }
 }

@@ -9,7 +9,7 @@ use Laravel\Scout\Searchable;
 
 class Question extends Model
 {
-    use Searchable;
+//    use Searchable;
     use Sluggable;
 
     protected $fillable = [

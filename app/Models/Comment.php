@@ -9,34 +9,24 @@ class Comment extends Model
     protected $table = 'comments';
 
     protected $fillable = [
-        'commentable_id',
-        'commentable_type',
+        'id',
+        'product_id',
         'user_id',
         'content',
         'parent_id',
+        'status',
         'created_at',
         'updated_at',
     ];
-
-
-    public function commentable()
-    {
-        return $this->morphTo();
-    }
 
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    public function post()
+    public function product()
     {
-        return $this->belongsTo(Post::class);
-    }
-
-    public function question()
-    {
-        return $this->belongsTo(Question::class);
+        return $this->belongsTo(Product::class);
     }
 
     public function replies()
@@ -46,6 +36,6 @@ class Comment extends Model
 
     public function scopeGetById($query, $id)
     {
-        return $query->where('commentable_id', $id)->get();
+        return $query->where('product_id', $id)->get();
     }
 }

@@ -32,6 +32,15 @@ li .user-icon:hover{
     min-width: 135px;
 }
 
+.dropdown-write{
+    min-width: 150px;
+}
+
+li .write-icon{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
 .sticky {
     position: fixed;
     top: -10px;

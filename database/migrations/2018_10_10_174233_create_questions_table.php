@@ -16,14 +16,12 @@ class CreateQuestionsTable extends Migration
         Schema::create('questions', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
             $table->integer('topic_id')->unsigned();
-            $table->foreign('topic_id')->references('id')->on('topics');
             $table->text('title');
             $table->text('slug')->nullable();
             $table->longText('content');
             $table->integer('view')->nullable();
-            $table->tinyInteger('status')->default(config('blog.question.status.active'));
+            $table->tinyInteger('status')->default(config('model.question.status.active'));
             $table->softDeletesTz();
             $table->timestamps();
         });

@@ -11,28 +11,86 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker\Factory::create();
-
-        $limit = 20;
-
         DB::table('users')->insert([
-            'name' => $faker->unique()->name,
+            'name' => 'Thanh Trần',
             'email' => 'thanh@gmail.com',
-            'role' => config('blog.user.role.admin'),
-            'birthday' => '2000-09-07',
-            'avatar' => '128.jpg',
+            'phone_number' => '0982682632',
+            'birthday' => '1994-12-12',
+            'address' => 'nam ha',
+            'city_id' => 2,
+            'role_id' => 1,
+            'password' => bcrypt('123456'),
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Minh Huệ',
+            'email' => 'a@gmail.com',
+            'phone_number' => '0982682632',
+            'birthday' => '1994-12-12',
+            'address' => 'nam ha',
+            'city_id' => 3,
+            'role_id' => 2,
+            'password' => bcrypt('123456'),
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Nam hà',
+            'email' => 'b@gmail.com',
+            'phone_number' => '0982682632',
+            'birthday' => '1994-12-12',
+            'address' => 'nam ha',
+            'city_id' => 4,
+            'role_id' => 2,
+            'password' => bcrypt('123456'),
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Tú linh',
+            'email' => 'c@gmail.com',
+            'phone_number' => '0982682632',
+            'birthday' => '1994-12-12',
+            'address' => 'nam ha',
+            'city_id' => 6,
+            'role_id' => 3,
+            'password' => bcrypt('123456'),
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Nam hà',
+            'email' => 'nam@gmail.com',
+            'phone_number' => '0982682632',
+            'birthday' => '1994-12-12',
+            'address' => 'nam ha',
+            'city_id' => 2,
+            'role_id' => 3,
+            'password' => bcrypt('123456'),
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Tú linh',
+            'email' => 'd@gmail.com',
+            'phone_number' => '0982682632',
+            'birthday' => '1994-12-12',
+            'address' => 'nam ha',
+            'city_id' => 5,
+            'role_id' => 3,
+            'password' => bcrypt('123456'),
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Nam hà',
+            'email' => 'f@gmail.com',
+            'phone_number' => '0982682632',
+            'birthday' => '1994-12-12',
+            'address' => 'nam ha',
+            'city_id' => 4,
+            'role_id' => 3,
+            'password' => bcrypt('123456'),
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Tú linh',
+            'email' => 'm@gmail.com',
+            'phone_number' => '0982682632',
+            'birthday' => '1994-12-12',
+            'address' => 'nam ha',
+            'city_id' => 5,
+            'role_id' => 3,
             'password' => bcrypt('123456'),
         ]);
 
-        for ($i = 0; $i < $limit; $i++) {
-            DB::table('users')->insert([
-                'name' => $faker->unique()->name,
-                'email' => $faker->unique()->email,
-                'role' => config('blog.user.role.member'),
-                'birthday' => '2000-09-07',
-                'avatar' => 'heyimjuani/128.jpg',
-                'password' => bcrypt('123456')
-            ]);
-        }
     }
 }
